@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Pizza Order"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Choose your pizza:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/pizzaType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="56dp"
+        android:text="Pepperoni"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <ImageView
+        android:id="@+id/pizzaImage"
+        android:layout_width="159dp"
+        android:layout_height="210dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pizzaType"
+        app:srcCompat="@drawable/pepperoni"
+        tools:srcCompat="@drawable/pepperoni" />
+
+    <ListView
+        android:id="@+id/pizza_list"
+        android:layout_width="191dp"
+        android:layout_height="210dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Choose pizza size:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pizza_list" />
+
+    <RadioGroup
+        android:id="@+id/sizeGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <RadioButton
+            android:id="@+id/radioMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Medium ($9.99)" />
+
+        <RadioButton
+            android:id="@+id/radioLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large ($13.99)" />
+
+        <RadioButton
+            android:id="@+id/radioXL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XLrg  ($15.99)" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Extra Toppings ($1.69 each):"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sizeGroup" />
+
+    <CheckBox
+        android:id="@+id/checkCheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onToppingsClicked"
+        android:text="Extra Cheese"
+        app:layout_constraintStart_toStartOf="@+id/checkMushrooms"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <CheckBox
+        android:id="@+id/checkMushrooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onToppingsClicked"
+        android:text="Mushrooms"
+        app:layout_constraintEnd_toStartOf="@+id/checkBroccoli"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkCheese" />
+
+    <CheckBox
+        android:id="@+id/checkBroccoli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onToppingsClicked"
+        android:text="Broccoli"
+        app:layout_constraintEnd_toStartOf="@+id/checkOlives"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkMushrooms"
+        app:layout_constraintTop_toTopOf="@+id/checkMushrooms" />
+
+    <CheckBox
+        android:id="@+id/checkOlives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onToppingsClicked"
+        android:text="Olives"
+        app:layout_constraintEnd_toStartOf="@+id/checkTomatoes"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBroccoli"
+        app:layout_constraintTop_toTopOf="@+id/checkBroccoli" />
+
+    <CheckBox
+        android:id="@+id/checkTomatoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onToppingsClicked"
+        android:text="Tomatoes"
+        app:layout_constraintEnd_toEndOf="@+id/checkOnions"
+        app:layout_constraintTop_toTopOf="@+id/checkOlives" />
+
+    <CheckBox
+        android:id="@+id/checkPeppers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onToppingsClicked"
+        android:text="Peppers"
+        app:layout_constraintEnd_toStartOf="@+id/checkOnions"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkSpinach"
+        app:layout_constraintTop_toTopOf="@+id/checkSpinach" />
+
+    <CheckBox
+        android:id="@+id/checkOnions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onToppingsClicked"
+        android:text="Onions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkPeppers"
+        app:layout_constraintTop_toTopOf="@+id/checkPeppers" />
+
+    <CheckBox
+        android:id="@+id/checkSpinach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spinach"
+        app:layout_constraintEnd_toStartOf="@+id/checkPeppers"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkCheese"
+        app:layout_constraintTop_toTopOf="@+id/checkCheese"
+        android:onClick="onToppingsClicked" />
+
+    <Switch
+        android:id="@+id/switchDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="1dp"
+        android:onClick="onDeliveryClicked"
+        android:text="No, $0.00"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Delivery?"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkMushrooms" />
+
+    <TextView
+        android:id="@+id/totalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Total Price: "
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
